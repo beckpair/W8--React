@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Home,Catalog,YourStacks } from './components';
+import { Home, Catalog, YourStacks } from './components';
 import reportWebVitals from './reportWebVitals';
+import './styles.css'
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -11,12 +12,11 @@ root.render(
   <React.StrictMode>
     <Router>
       <Routes>
-        <Route path='/' element={<Home title={'Drone Inventory'}/>}/>
+        <Route path='/' element={<Home title={'Bookstack'}/>}/>
         <Route path='/catalog' element={<Catalog/>}/>
         <Route path='/yourstacks' element={<YourStacks/>}/>
       </Routes>
     </Router>
-    <Home title={'Bookstack'} />
   </React.StrictMode>
 );
 
