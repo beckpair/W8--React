@@ -4,19 +4,23 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Home, Catalog, YourStacks } from './components';
 import reportWebVitals from './reportWebVitals';
 import './styles.css'
+import { theme } from './Theme/themes';
+import { ThemeProvider } from '@mui/material/styles';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <Router>
-      <Routes>
-        <Route path='/' element={<Home title={'Bookstack'}/>}/>
-        <Route path='/catalog' element={<Catalog/>}/>
-        <Route path='/yourstacks' element={<YourStacks/>}/>
-      </Routes>
-    </Router>
+    <ThemeProvider theme={theme}>
+      <Router>
+        <Routes>
+          <Route path='/' element={<Home title={'Bookstack'}/>}/>
+          <Route path='/catalog' element={<Catalog/>}/>
+          <Route path='/yourstacks' element={<YourStacks/>}/>
+        </Routes>
+      </Router>
+    </ThemeProvider>
   </React.StrictMode>
 );
 

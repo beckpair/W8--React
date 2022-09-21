@@ -83,9 +83,9 @@ export const Home = ( props:Props) => {
             </NavbarContainer>
             <Main>
                 <MainText>
-                    <h1>{props.title}</h1>
-                    <p>Curate your Stacks.</p>
-                    <Button color='success' variant='contained' component={Link} to='/catalog'>Find Your Next Read!</Button>
+                    <h1>{props.title}</h1><br />
+                    <p>Curate your Stacks.</p><br />
+                    <Button color='primary' variant='contained' component={Link} to='/catalog'>Find Your Next Read!</Button>
                 </MainText>
             </Main>
         </Root>
