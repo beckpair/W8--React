@@ -10,13 +10,18 @@ Typography,
 Divider,
 Button,
 CssBaseline,
-Box
+Box,
+Dialog,
+DialogActions,
+DialogContent,
+DialogContentText,
+DialogTitle
 } from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
 import { ChevronRight, ChevronLeft } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import { theme } from "../../Theme/themes";
-import { DataTable } from "../../components";
+import { DataTable, BookForm } from "../../components";
 
 const drawerWidth = 240;
 
@@ -83,6 +88,8 @@ export const Catalog = () => {
     const navigate = useNavigate();
     const [open, setOpen] = useState(false);
 
+    const [dialogOpen, setDialogOpen] = useState(false)
+
     const handleDrawerOpen = () => {
         setOpen(true);
     };
@@ -90,6 +97,14 @@ export const Catalog = () => {
     const handleDrawerClose = () => {
         setOpen(false);
     };
+
+    const handleDialogClickOpen = () => {
+        setDialogOpen(true);
+    }
+
+    const handleDialogClickClose = () => {
+        setDialogOpen(false);
+    }
 
     const itemsList = [
         {
@@ -120,6 +135,16 @@ export const Catalog = () => {
                     </IconButton>
                     <Typography variant="h6" noWrap> Catalog</Typography>
                     <Button sx={ myStyles.toolbar_button }>Add Your Own Entry</Button>
+                    <Dialog open={dialogOpen} onClose={handleDialogClickClose} aria-labelledby='form-dialog-title'>
+                        <DialogTitle id="form-dialog-title">Add New Drone</DialogTitle>
+                        <DialogContent>
+                            <DialogContentText>Add a New Drone</DialogContentText>
+                            <BookForm />
+                        </DialogContent>
+                        <DialogActions>
+                            <Button onClick={handleDialogClickClose} color="primary">Cancel</Button>
+                        </DialogActions>
+                    </Dialog>
                 </Toolbar>
             </AppBar>
             <MUIDrawer
